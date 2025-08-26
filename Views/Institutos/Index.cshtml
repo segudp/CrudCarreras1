@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CrudCarreras1.Models.Instituto>
+@{
+    ViewData["Title"] = "Institutos";
+    var privados = Model.Where(i => i.TipoInstituto == "Privado").OrderBy(i => i.Nombre);
+    var publicos = Model.Where(i => i.TipoInstituto == "Público").OrderBy(i => i.Nombre);
+}
+<h2>@ViewData["Title"]</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary mb-3">
+        <i class="bi bi-plus-circle"></i> Agregar Nuevo Instituto
+    </a>
+</p>
+<hr class="my-4" />
+<h3 class="fw-bold">🏫 Institutos Privados</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th style="width: 250px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instituto in privados)
+        {
+            <tr>
+                <td>@instituto.Nombre</td>
+                <td style="white-space: nowrap;">
+                    <div class="d-flex gap-1">
+                        <a asp-action="Details" asp-route-id="@instituto.Id" class="btn btn-sm btn-info">
+                            <i class="bi bi-eye"></i> Detalles
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@instituto.Id" class="btn btn-sm btn-warning">
+                            <i class="bi bi-pencil-square"></i> Editar
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@instituto.Id" class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr class="my-4" />
+<h3 class="fw-bold">🏛️ Institutos Públicos</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th style="width: 250px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var instituto in publicos)
+        {
+            <tr>
+                <td>@instituto.Nombre</td>
+                <td style="white-space: nowrap;">
+                    <div class="d-flex gap-1">
+                        <a asp-action="Details" asp-route-id="@instituto.Id" class="btn btn-sm btn-info">
+                            <i class="bi bi-eye"></i> Detalles
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@instituto.Id" class="btn btn-sm btn-warning">
+                            <i class="bi bi-pencil-square"></i> Editar
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@instituto.Id" class="btn btn-sm btn-danger">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,20 @@
+﻿@model CrudCarreras1.Models.Carrera
+
+@{
+    ViewData["Title"] = "Detalles de la Carrera";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <strong>ID:</strong> @Model.ID <br />
+    <strong>Nombre:</strong> @Model.Nombre <br />
+    <strong>Instituto:</strong> @Model.Instituto?.Nombre <br />
+    <strong>Cuatrimestres:</strong> @Model.Cuatrimestres <br />
+</div>
+
+<hr />
+
+<a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-warning">Editar</a>
+<a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Eliminar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver al listado</a>

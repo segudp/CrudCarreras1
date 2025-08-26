@@ -1,0 +1,15 @@
+﻿@model CrudCarreras1.Models.Carrera
+
+<h1>Eliminar Carrera</h1>
+
+<h3>¿Estás seguro que deseas borrar esta carrera?</h3>
+
+<div class="mb-3">
+    <strong>Nombre:</strong> @Model.Nombre
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ID" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>

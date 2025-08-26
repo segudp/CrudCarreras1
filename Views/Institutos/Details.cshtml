@@ -1,0 +1,36 @@
+﻿@model CrudCarreras1.Models.Instituto
+
+@{
+    ViewData["Title"] = "Detalles del Instituto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <strong>ID:</strong> @Model.Id <br />
+    <strong>Nombre:</strong> @Model.Nombre <br />
+    <strong>Tipo:</strong> @Model.TipoInstituto
+</div>
+
+
+<hr />
+
+<h4>Carreras asociadas</h4>
+
+@if (Model.Carreras != null && Model.Carreras.Any())
+{
+    <ul>
+        @foreach (var carrera in Model.Carreras)
+        {
+            <li>@carrera.Nombre</li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-muted">Este instituto no tiene carreras registradas.</p>
+}
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Eliminar</a>
+<a asp-action="Index" class="btn btn-secondary">Volver al listado</a>

@@ -1,0 +1,18 @@
+﻿@model CrudCarreras1.Models.Instituto
+
+@{
+    ViewData["Title"] = "Eliminar Instituto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>¿Estás seguro de que querés eliminar este instituto y todas sus carreras?</h4>
+<div>
+    <strong>Nombre:</strong> @Model.Nombre
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

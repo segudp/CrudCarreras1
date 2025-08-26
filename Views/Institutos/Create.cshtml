@@ -1,0 +1,35 @@
+﻿@model CrudCarreras1.Models.Instituto
+
+@{
+    ViewData["Title"] = "Agregar Instituto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Nombre" class="control-label">Nombre del Instituto</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TipoInstituto" class="control-label"></label>
+        <select asp-for="TipoInstituto" class="form-control">
+            <option value="Privado">Privado</option>
+            <option value="Público">Público</option>
+        </select>
+        <span asp-validation-for="TipoInstituto" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
